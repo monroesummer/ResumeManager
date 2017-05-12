@@ -1,0 +1,76 @@
+﻿@model ResumeManager.Models.User
+@{
+    ViewBag.Title = "Редактирование " + Model.Username;
+}
+
+<div class="container-fluid">
+    <form asp-action="Edit" asp-controller="Admin" asp-route-id="@Model.Id">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Редактирование: @Model.Username</div>
+            <br>
+            <div class="container-fluid">
+
+                <div class="validation" asp-validation-summary="ModelOnly"></div>
+                <div class="form-group">
+                    <label asp-for="Username" class="control-label">Логин</label>
+                    <input type="text" asp-for="Username" class="form-control" />
+                    <span asp-validation-for="Username" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label">Пароль</label>
+                    <input type="text" asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label">Имя</label>
+                    <input type="text" asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="LastName" class="control-label">Фамилия</label>
+                    <input type="text" asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Phone" class="control-label">Номер Телефона</label>
+                    <input type="text" asp-for="Phone" class="form-control" />
+                    <span asp-validation-for="Phone" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Company" class="control-label">Компания</label>
+                    <input type="text" asp-for="Company" class="form-control" />
+                    <span asp-validation-for="Company" />
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Редактировать</button>
+        </div>
+        <a href="~/Admin/Admins" class="btn btn-primary btn-lg btn-block" role="button">Назад</a>
+    </form>
+</div>
+
+
+@section scripts{
+
+    <environment names="Development">
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"
+                asp-fallback-src="~/lib/jquery-validation/dist/jquery.validate.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.validator">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"
+                asp-fallback-src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.validator && window.jQuery.validator.unobtrusive">
+        </script>
+    </environment>
+}

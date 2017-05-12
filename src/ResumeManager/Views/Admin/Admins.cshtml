@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ResumeManager.Models.User>
+@{
+    ViewData["Title"] = "Админы";
+}
+
+<div class="panel panel-primary">
+    <!-- Default panel contents -->
+    <div class="panel-heading"><span class="glyphicon glyphicon-link"></span> Администраторы</div>
+
+    <!-- Table -->
+    <table class="table">
+        <tr>
+            <th>#</th>
+            <th>Логин</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Компания</th>
+   
+        </tr>
+
+        @foreach (var admin in Model)
+        {
+            <tr>
+                <td>@admin.Id</td>
+                <td>@admin.Username</td>
+                <td>@admin.Name</td>
+                <td>@admin.LastName</td>
+                <td>@admin.Company</td>
+                <td>
+                    <a asp-action="Details" asp-controller="Admin" asp-route-id="@admin.Id"><span class="glyphicon glyphicon-eye-open"></span></a> |
+                    <a asp-action="Edit" asp-controller="Admin" asp-route-id="@admin.Id"><span class="glyphicon glyphicon-pencil"></span></a> |
+                    <a asp-action="Delete" asp-controller="Admin" asp-route-id="@admin.Id"><span class="glyphicon glyphicon-trash"></span></a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+<a class="btn btn-primary btn-lg btn-block" href="~/Admin/Create" role="button">Добавить Администратора</a>

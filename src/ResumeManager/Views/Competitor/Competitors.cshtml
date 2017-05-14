@@ -1,0 +1,35 @@
+﻿@model IEnumerable<ResumeManager.Models.Competitor>
+@{
+    ViewData["Title"] = "Компании";
+}
+
+<div class="panel panel-primary">
+    <div class="panel-heading"><span class="glyphicon glyphicon-link"></span> Соискатели</div>
+    <table class="table">
+        <tr>
+            <th>#</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Отчество</th>
+            <th>Компания</th>
+        </tr>
+
+        @foreach (var competitor in Model)
+        {
+            <tr>
+                <td>@competitor.Id</td>
+                <td>@competitor.Name</td>
+                <td>@competitor.LastName</td>
+                <td>@competitor.MiddleName</td>
+                <td>@competitor.Company.CompanyName</td>
+                <td>
+                    <a asp-action="Details" asp-controller="Competitor" asp-route-id="@competitor.Id"><span class="glyphicon glyphicon-eye-open"></span></a> |
+                    <a asp-action="Edit" asp-controller="Competitor" asp-route-id="@competitor.Id"><span class="glyphicon glyphicon-pencil"></span></a> |
+                    <a asp-action="Delete" asp-controller="Competitor" asp-route-id="@competitor.Id"><span class="glyphicon glyphicon-trash"></span></a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+<a class="btn btn-primary btn-lg btn-block" href="~/Competitor/Create" role="button">Добавить Соискателя</a>

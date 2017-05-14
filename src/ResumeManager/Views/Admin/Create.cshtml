@@ -6,46 +6,18 @@
     <div class="container-fluid">
         <div class="panel panel-primary">
             <div class="panel-heading">Добавление Администратора</div>
-            <br>
-            <div class="container-fluid">
-
+            <div class="panel-body">
                 <div class="validation" asp-validation-summary="ModelOnly"></div>
                 <div class="form-group">
                     <label asp-for="Username" class="control-label">Логин</label>
                     <input type="text" asp-for="Username" class="form-control" />
                     <span asp-validation-for="Username" />
                 </div>
-
                 <div class="form-group">
                     <label asp-for="Password" class="control-label">Пароль</label>
                     <input type="text" asp-for="Password" class="form-control" />
                     <span asp-validation-for="Password" />
                 </div>
-
-                <div class="form-group">
-                    <label asp-for="Name" class="control-label">Имя</label>
-                    <input type="text" asp-for="Name" class="form-control" />
-                    <span asp-validation-for="Name" />
-                </div>
-
-                <div class="form-group">
-                    <label asp-for="LastName" class="control-label">Фамилия</label>
-                    <input type="text" asp-for="LastName" class="form-control" />
-                    <span asp-validation-for="LastName" />
-                </div>
-
-                <div class="form-group">
-                    <label asp-for="Phone" class="control-label">Номер Телефона</label>
-                    <input type="text" asp-for="Phone" class="form-control" />
-                    <span asp-validation-for="Phone" />
-                </div>
-
-                <div class="form-group">
-                    <label asp-for="Company" class="control-label">Компания</label>
-                    <input type="text" asp-for="Company" class="form-control" />
-                    <span asp-validation-for="Company" />
-                </div>
-
             </div>
         </div>
         <div class="form-group">

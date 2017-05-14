@@ -1,0 +1,300 @@
+﻿@model ResumeManager.Models.Competitor
+@{
+    ViewBag.Title = "Отправление Резюме";
+}
+
+<div class="container-fluid">
+    <div class="well"><h3 class="text-center">Пожалуйста, заполните поля как указано в примере. Приоритет будет отдаваться тому, кто грамотно и правльно заполнит форму. Желаем удачи!</h3></div>
+    <form id="form" asp-action="Send" asp-controller="Resume">
+        <div class="row">
+            <div class="col-md-6">
+                <!--Контакты------------------------------------------------------------------------->
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Добавьте свои данные в форме снизу, а так же компанию, которой вы интересуетесь.</div>
+                    <div class="panel-body">
+                        <div class="validation" asp-validation-summary="ModelOnly"></div>
+                        <div class="form-group">
+                            <label asp-for="Name" class="control-label">Имя.</label>
+                            <input type="text" asp-for="Name" class="form-control" placeholder="Иван" />
+                            <span asp-validation-for="Name" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="LastName" class="control-label">Фамилия.</label>
+                            <input type="text" asp-for="LastName" class="form-control" placeholder="Иванов" />
+                            <span asp-validation-for="LastName" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="MiddleName" class="control-label">Отчество.</label>
+                            <input type="text" asp-for="MiddleName" class="form-control" placeholder="Иванович" />
+                            <span asp-validation-for="MiddleName" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="CompanyId" class="control-label">Компания</label>
+                            @Html.DropDownListFor(model => model.CompanyId, ViewBag.Company as SelectList, null, new { @class = "form-control" })
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Birthdate" class="control-label">Дата Рождения.</label>
+                            <div class='input-group date' id='datepicker'>
+                                <input type="text" asp-for="Birthdate" class="form-control" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                        
+                            <div class="form-group">
+                                <label asp-for="FillingDate" class="control-label">Дата Заполнения.</label>
+                                <input type="text" asp-for="FillingDate" class="form-control" placeholder="дд.мм.гггг"  readonly="readonly" value="@DateTime.Now.Date.ToString("dd/MM/yyy")" />
+                                <span asp-validation-for="FillingDate" />
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Phone" class="control-label">Номер Телефона.</label>
+                                <input type="text" asp-for="Phone" class="form-control" placeholder="+7(999)777-77-77" />
+                                <span asp-validation-for="Phone" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Email" class="control-label">E-Mail.</label>
+                                <input type="text" asp-for="Email" class="form-control" placeholder="example@mail.com" />
+                                <span asp-validation-for="Email" />
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <!--Зарплата и образование------------------------------------------------------------------------->
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Пожалуйста, укажите ваше образование, хобби и уровень предпочитаемой зарплаты.</div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label asp-for="PreferSalary" class="control-label">Желаемые уровни оплаты: <em>Минимальный, Комфортный, Испытательный срок.</em></label>
+                            <textarea type="text" rows="2" asp-for="PreferSalary" class="form-control" placeholder="Например: Минимальный: 30 000 рублей, Комфортный: 60 000 рублей, Испытательный срок: 15 000 рублей"></textarea>
+                            <span asp-validation-for="PreferSalary" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Education" class="control-label">Вуз, факультет, специальность, ученая степень, год окончания, средний балл успеваемости.<br><em>Для второго высшего или аспирантуры заполните аналогично.</em></label>
+                            <textarea rows="4" type="text" asp-for="Education" class="form-control" placeholder="Например: КФУ, ВМК, Программная Инженерия, Бакалавр, Удовлетворительно."></textarea>
+                            <span asp-validation-for="Education" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Hobby" class="control-label">Хобби.</label>
+                            <input type="text" asp-for="Hobby" class="form-control" placeholder="Web - программирование, прогулки на велосипеде и тд." />
+                            <span asp-validation-for="Hobby" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+           <div class="row">
+               <div class="col-md-8">
+                   <!--Навыки------------------------------------------------------------------------->
+                   <div class="panel panel-primary">
+                       <div class="panel-heading"><p>Пожалуйста, укажите ваши технические навыки.</p> <p><em>По каждой позиции указать конкретные знания, их уровень (начальный, базовый, хороший, продвинутый) и опыт работы. Если опыт отсутсвует, напишите в поле "Нет опыта".</em></p></div>
+                       <div class="panel-body">
+                           <div class="form-group">
+                               <label asp-for="OS" class="control-label">Операционные системы.</label>
+                               <input type="text" asp-for="OS" class="form-control" placeholder="Например: 1) Windows Server пол года, хороший. 2) Linux 2 года, продвинутый и тд." />
+                               <span asp-validation-for="OS" />
+                           </div>
+                           <div class="form-group">
+                               <label asp-for="Database" class="control-label">Знание СУБД.</label>
+                               <input type="text" asp-for="Database" class="form-control" placeholder="Например: 1) MS SQL Server 3 года, продвинутый. 2) PostgreSQL 3 месяца, начальный и тд." />
+                               <span asp-validation-for="Database" />
+                           </div>
+                           <div class="form-group">
+                               <label asp-for="PL" class="control-label">Языки Программирования.</label>
+                               <input type="text" asp-for="PL" class="form-control" placeholder="Например: 1) C# 4 года, продвинутый. 2) PHP 8 месяцев, хороший. 3) Python 2 месяца, начальный и тд." />
+                               <span asp-validation-for="PL" />
+                           </div>
+                           <div class="form-group">
+                               <label asp-for="Network" class="control-label">Знание Сетевых Технологий.</label>
+                               <input type="text" asp-for="Network" class="form-control" placeholder="Например: VLAN, FDDI, IEEE802.3/Ethernet и тд." />
+                               <span asp-validation-for="Network" />
+                           </div>
+                           <div class="form-group">
+                               <label asp-for="CASE" class="control-label">CASE - Технологии.</label>
+                               <input type="text" asp-for="CASE" class="form-control" placeholder="Нет опыта." />
+                               <span asp-validation-for="CASE" />
+                           </div>
+                           <div class="form-group">
+                               <label asp-for="TeamDev" class="control-label">Работа в Команде.</label>
+                               <input type="text" asp-for="TeamDev" class="form-control" placeholder="Например: Работал в команде от Х человек, N лет." />
+                               <span asp-validation-for="TeamDev" />
+                           </div>
+                           <div class="form-group">
+                               <label asp-for="Experience" class="control-label">Опыт в IT.</label>
+                               <input type="text" asp-for="Experience" class="form-control" placeholder="Например: Работал Junior'ом в компании N, X лет и тд." />
+                               <span asp-validation-for="Experience" />
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-md-4">
+                   <!--Приоритеты------------------------------------------------------------------------->
+                   <div class="panel panel-primary">
+                       <div class="panel-heading">Пожалуйста, укажите ваши жизненные приоритеты от <em>1 до 10 (10-максимальное, 1- минимальное значение)</em></div>
+                       <div class="panel-body">
+
+                           <div class="form-group">
+                               <label asp-for="Career" class="control-label">Карьера.</label>
+                               <select asp-for="Career" class="form-control">
+                                   <option>1</option>
+                                   <option>2</option>
+                                   <option>3</option>
+                                   <option>4</option>
+                                   <option>5</option>
+                                   <option>6</option>
+                                   <option>7</option>
+                                   <option>8</option>
+                                   <option>9</option>
+                                   <option>10</option>
+                               </select>
+                               <span asp-validation-for="Career" />
+                           </div>
+                           <div class="form-group">
+                               <label asp-for="Money" class="control-label">Деньги, Льготы.</label>
+                               <select asp-for="Money" class="form-control">
+                                   <option>1</option>
+                                   <option>2</option>
+                                   <option>3</option>
+                                   <option>4</option>
+                                   <option>5</option>
+                                   <option>6</option>
+                                   <option>7</option>
+                                   <option>8</option>
+                                   <option>9</option>
+                                   <option>10</option>
+                               </select>
+                               <span asp-validation-for="Money" />
+                           </div>
+                           <div class="form-group">
+                               <label asp-for="Home" class="control-label">Близость к Дому.</label>
+                               <select asp-for="Home" class="form-control">
+                                   <option>1</option>
+                                   <option>2</option>
+                                   <option>3</option>
+                                   <option>4</option>
+                                   <option>5</option>
+                                   <option>6</option>
+                                   <option>7</option>
+                                   <option>8</option>
+                                   <option>9</option>
+                                   <option>10</option>
+                               </select>
+                               <span asp-validation-for="Home" />
+                           </div>
+                           <div class="form-group">
+                               <label asp-for="Prestige" class="control-label">Престиж Компании.</label>
+                               <select asp-for="Prestige" class="form-control">
+                                   <option>1</option>
+                                   <option>2</option>
+                                   <option>3</option>
+                                   <option>4</option>
+                                   <option>5</option>
+                                   <option>6</option>
+                                   <option>7</option>
+                                   <option>8</option>
+                                   <option>9</option>
+                                   <option>10</option>
+                               </select>
+                               <span asp-validation-for="Prestige" />
+                           </div>
+                           <div class="form-group">
+                               <label asp-for="Language" class="control-label">Языковая Практика.</label>
+                               <select asp-for="Language" class="form-control">
+                                   <option>1</option>
+                                   <option>2</option>
+                                   <option>3</option>
+                                   <option>4</option>
+                                   <option>5</option>
+                                   <option>6</option>
+                                   <option>7</option>
+                                   <option>8</option>
+                                   <option>9</option>
+                                   <option>10</option>
+                               </select>
+                               <span asp-validation-for="Language" />
+                           </div>
+                           <div class="form-group">
+                               <label asp-for="Stability" class="control-label">Стабильность, надежность Компании.</label>
+                               <select asp-for="Stability" class="form-control">
+                                   <option>1</option>
+                                   <option>2</option>
+                                   <option>3</option>
+                                   <option>4</option>
+                                   <option>5</option>
+                                   <option>6</option>
+                                   <option>7</option>
+                                   <option>8</option>
+                                   <option>9</option>
+                                   <option>10</option>
+                               </select>
+                               <span asp-validation-for="Stability" />
+                           </div>
+                           <div class="form-group">
+                               <label asp-for="Knowledge" class="control-label">Приобретение нового опыта и знаний.</label>
+                               <select asp-for="Knowledge" class="form-control">
+                                   <option>1</option>
+                                   <option>2</option>
+                                   <option>3</option>
+                                   <option>4</option>
+                                   <option>5</option>
+                                   <option>6</option>
+                                   <option>7</option>
+                                   <option>8</option>
+                                   <option>9</option>
+                                   <option>10</option>
+                                </select>
+                               <span asp-validation-for="Knowledge" />
+                           </div>
+                           <div class="form-group">
+                               <label asp-for="Intensity" class="control-label">Высокая интенсивность работы.</label>
+                               <select asp-for="Intensity" class="form-control">
+                                   <option>1</option>
+                                   <option>2</option>
+                                   <option>3</option>
+                                   <option>4</option>
+                                   <option>5</option>
+                                   <option>6</option>
+                                   <option>7</option>
+                                   <option>8</option>
+                                   <option>9</option>
+                                   <option>10</option>
+                                </select>
+                               <span asp-validation-for="Intensity" />
+                           </div>
+                           <div class="form-group">
+                               <label asp-for="Complexity" class="control-label">Сложность поставленных задач.</label>
+                               <select asp-for="Complexity" class="form-control">
+                                   <option>1</option>
+                                   <option>2</option>
+                                   <option>3</option>
+                                   <option>4</option>
+                                   <option>5</option>
+                                   <option>6</option>
+                                   <option>7</option>
+                                   <option>8</option>
+                                   <option>9</option>
+                                   <option>10</option>
+                                </select>
+                               <span asp-validation-for="Complexity" />
+                           </div>
+                       </div>
+                   </div>
+               </div>
+            </div>
+           
+            
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Отправить</button>
+            </div>
+
+    </form>
+</div>
+
+
+
+
+

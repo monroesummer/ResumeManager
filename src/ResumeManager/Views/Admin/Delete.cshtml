@@ -1,21 +1,17 @@
 ﻿@model ResumeManager.Models.User
 @{
-    ViewBag.Title = "Удалить администатора " + Model.Username;
+    ViewBag.Title = "Удалить Администатора " + Model.Username;
 }
 <div class="container-fluid">
     <div class="panel panel-primary">
-        <!-- Default panel contents -->
         <div class="panel-heading">Администатор @Model.Username</div>
-        <!-- List group -->
-        <ul class="list-group">
-            <li class="list-group-item">ID: @Model.Id</li>
-            <li class="list-group-item">Лоигн: @Model.Username</li>
-            <li class="list-group-item">Пароль: @Model.Password</li>
-            <li class="list-group-item">Имя: @Model.Name</li>
-            <li class="list-group-item">Фамилия: @Model.LastName</li>
-            <li class="list-group-item">Номер Телефона: @Model.Phone</li>
-            <li class="list-group-item">Компания: @Model.Company</li>
-        </ul>
+        <div class="panel-body">
+            <ul class="list-group">
+                <li class="list-group-item">ID: @Model.Id</li>
+                <li class="list-group-item">Логин: @Model.Username</li>
+                <li class="list-group-item">Пароль: @Model.Password</li>
+            </ul>
+        </div>
     </div>
     <form asp-controller="Admin" asp-action="Delete" method="post">
         <div class="form-group">

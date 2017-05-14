@@ -1,0 +1,20 @@
+﻿@model ResumeManager.Models.Company
+@{
+    ViewBag.Title = "Компания " + Model.CompanyName;
+}
+<div class="container-fluid">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Компания @Model.CompanyName</div>
+        <div class="panel-body">
+            <ul class="list-group">
+                <li class="list-group-item">ID: @Model.Id</li>
+                <li class="list-group-item">Название: @Model.CompanyName</li>
+                <li class="list-group-item">Адрес: @Model.Address</li>
+                <li class="list-group-item">Имя HR'a: @Model.HRName</li>
+                <li class="list-group-item">Фамилия HR'a: @Model.HRLastName</li>
+                <li class="list-group-item">Телефон HR'a: @Model.HRPhone</li>
+            </ul>
+        </div>
+    </div>
+    <a href="~/Company/Companies" class="btn btn-primary btn-lg btn-block" role="button">Назад</a>
+</div>

@@ -1,0 +1,49 @@
+﻿@model ResumeManager.Models.Competitor
+@{
+    ViewBag.Title = "Удалить Соискателя " + Model.Name + " " + Model.LastName;
+}
+<div class="container-fluid">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Соискатель  @Model.Name  @Model.LastName</div>
+        <div class="panel-body">
+            <ul class="list-group">
+                <li class="list-group-item">ID: @Model.Id</li>
+                <li class="list-group-item">Имя: @Model.Name</li>
+                <li class="list-group-item">Фамилия: @Model.LastName</li>
+                <li class="list-group-item">Отчество: @Model.MiddleName</li>
+                <li class="list-group-item">Компания: @Model.Company.CompanyName</li>
+                <li class="list-group-item">Дата Рождения: @Model.Birthdate</li>
+                <li class="list-group-item">Дата Заполнения: @Model.FillingDate</li>
+                <li class="list-group-item">Номер Телефона: @Model.Phone</li>
+                <li class="list-group-item">E-Mail: @Model.Email</li>
+                <li class="list-group-item">Предпочитаемая Зарплата: @Model.PreferSalary</li>
+                <li class="list-group-item">Образование: @Model.Education</li>
+                <li class="list-group-item">Знание OS: @Model.OS</li>
+                <li class="list-group-item">Знание СУБД: @Model.Database</li>
+                <li class="list-group-item">Языки Программирования: @Model.PL</li>
+                <li class="list-group-item">Знание Сетевых Технологий: @Model.Network</li>
+                <li class="list-group-item">CASE - Технологии: @Model.CASE</li>
+                <li class="list-group-item">Опыт Работы в Команде: @Model.TeamDev</li>
+                <li class="list-group-item">Опыт в IT Сфере: @Model.Experience</li>
+                <li class="list-group-item">Хобби: @Model.Hobby</li>
+                <li class="list-group-item">Карьера: @Model.Career</li>
+                <li class="list-group-item">Зарплата: @Model.Money</li>
+                <li class="list-group-item">Близость к Дому: @Model.Home</li>
+                <li class="list-group-item">Престиж Компании: @Model.Prestige</li>
+                <li class="list-group-item">Языковая Практика: @Model.Language</li>
+                <li class="list-group-item">Стабильность Компании: @Model.Stability</li>
+                <li class="list-group-item">Получение Опыта: @Model.Knowledge</li>
+                <li class="list-group-item">Интенсивность Работы: @Model.Intensity</li>
+                <li class="list-group-item">Сложность Поставленных Задач: @Model.Complexity</li>
+                <li class="list-group-item">Оценка: @Model.Mark</li>
+            </ul>
+        </div>
+    </div>
+    <form asp-controller="Competitor" asp-action="Delete" method="post">
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary btn-lg btn-block" value="Удалить" />
+        </div>
+        <a href="~/Competitor/Competitors" class="btn btn-primary btn-lg btn-block" role="button">Назад</a>
+    </form>
+
+</div>

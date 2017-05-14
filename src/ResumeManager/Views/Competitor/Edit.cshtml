@@ -1,0 +1,177 @@
+﻿@model ResumeManager.Models.Competitor
+@{
+    ViewBag.Title = "Редактирование " + Model.Name;
+}
+
+<div class="container-fluid">
+    <form asp-action="Edit" asp-controller="Competitor" asp-route-id="@Model.Id">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Редактирование: @Model.Name</div>
+            <div class="panel-body">
+                <div class="validation" asp-validation-summary="ModelOnly"></div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label">Имя</label>
+                    <input type="text" asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastName" class="control-label">Фамилия</label>
+                    <input type="text" asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="MiddleName" class="control-label">Отчество</label>
+                    <input type="text" asp-for="MiddleName" class="form-control" />
+                    <span asp-validation-for="MiddleName" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="CompanyId" class="control-label">Компания</label>
+                    @Html.DropDownListFor(model => model.CompanyId, ViewBag.Company as SelectList, null, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label asp-for="Birthdate" class="control-label">Дата Рождения</label>
+                    <input type="text" asp-for="Birthdate" class="form-control" />
+                    <span asp-validation-for="Birthdate" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="FillingDate" class="control-label">Дата Заполнения</label>
+                    <input type="text" asp-for="FillingDate" class="form-control" />
+                    <span asp-validation-for="FillingDate" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Phone" class="control-label">Номер Телефона</label>
+                    <input type="text" asp-for="Phone" class="form-control" />
+                    <span asp-validation-for="Phone" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label">E-Mail</label>
+                    <input type="text" asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="PreferSalary" class="control-label">Предпочитаемая Зарплата</label>
+                    <input type="text" asp-for="PreferSalary" class="form-control" />
+                    <span asp-validation-for="PreferSalary" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Education" class="control-label">Образование</label>
+                    <input type="text" asp-for="Education" class="form-control" />
+                    <span asp-validation-for="Education" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="OS" class="control-label">Знание OS</label>
+                    <input type="text" asp-for="OS" class="form-control" />
+                    <span asp-validation-for="OS" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Database" class="control-label">Знание СУБД</label>
+                    <input type="text" asp-for="Database" class="form-control" />
+                    <span asp-validation-for="Database" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="PL" class="control-label">Языки Программирования</label>
+                    <input type="text" asp-for="PL" class="form-control" />
+                    <span asp-validation-for="PL" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Network" class="control-label">Знание Сетевых Технологий</label>
+                    <input type="text" asp-for="Network" class="form-control" />
+                    <span asp-validation-for="Network" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="CASE" class="control-label">CASE - Технологии</label>
+                    <input type="text" asp-for="CASE" class="form-control" />
+                    <span asp-validation-for="CASE" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="TeamDev" class="control-label">Работа в Команде</label>
+                    <input type="text" asp-for="TeamDev" class="form-control" />
+                    <span asp-validation-for="TeamDev" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Experience" class="control-label">Опыт в IT</label>
+                    <input type="text" asp-for="Experience" class="form-control" />
+                    <span asp-validation-for="Experience" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Hobby" class="control-label">Хобби</label>
+                    <input type="text" asp-for="Hobby" class="form-control" />
+                    <span asp-validation-for="Hobby" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Career" class="control-label">Карьера</label>
+                    <input type="text" asp-for="Career" class="form-control" />
+                    <span asp-validation-for="Career" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Money" class="control-label">Деньги</label>
+                    <input type="text" asp-for="Money" class="form-control" />
+                    <span asp-validation-for="Money" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Home" class="control-label">Близость к Дому</label>
+                    <input type="text" asp-for="Home" class="form-control" />
+                    <span asp-validation-for="Home" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Prestige" class="control-label">Престиж Компании</label>
+                    <input type="text" asp-for="Prestige" class="form-control" />
+                    <span asp-validation-for="Prestige" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Language" class="control-label">Языковая Практика</label>
+                    <input type="text" asp-for="Language" class="form-control" />
+                    <span asp-validation-for="Language" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Stability" class="control-label">Стабильность Компании</label>
+                    <input type="text" asp-for="Stability" class="form-control" />
+                    <span asp-validation-for="Stability" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Knowledge" class="control-label">Получение Опыта</label>
+                    <input type="text" asp-for="Knowledge" class="form-control" />
+                    <span asp-validation-for="Knowledge" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Intensity" class="control-label">Интенсивность Работы</label>
+                    <input type="text" asp-for="Intensity" class="form-control" />
+                    <span asp-validation-for="Intensity" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Complexity" class="control-label">Сложность Задач</label>
+                    <input type="text" asp-for="Complexity" class="form-control" />
+                    <span asp-validation-for="Complexity" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Mark" class="control-label">Оценка</label>
+                    <input type="text" asp-for="Mark" class="form-control" />
+                    <span asp-validation-for="Mark" />
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Редактировать</button>
+        </div>
+        <a href="~/Competitor/Competitors" class="btn btn-primary btn-lg btn-block" role="button">Назад</a>
+    </form>
+</div>
+
+
+@section scripts{
+
+    <environment names="Development">
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"
+                asp-fallback-src="~/lib/jquery-validation/dist/jquery.validate.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.validator">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"
+                asp-fallback-src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.validator && window.jQuery.validator.unobtrusive">
+        </script>
+    </environment>
+}

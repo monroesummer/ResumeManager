@@ -4,18 +4,12 @@
 }
 
 <div class="panel panel-primary">
-    <!-- Default panel contents -->
     <div class="panel-heading"><span class="glyphicon glyphicon-link"></span> Администраторы</div>
-
-    <!-- Table -->
     <table class="table">
         <tr>
             <th>#</th>
             <th>Логин</th>
-            <th>Имя</th>
-            <th>Фамилия</th>
-            <th>Компания</th>
-   
+            <th>Пароль</th>
         </tr>
 
         @foreach (var admin in Model)
@@ -23,9 +17,7 @@
             <tr>
                 <td>@admin.Id</td>
                 <td>@admin.Username</td>
-                <td>@admin.Name</td>
-                <td>@admin.LastName</td>
-                <td>@admin.Company</td>
+                <td>@admin.Password</td>
                 <td>
                     <a asp-action="Details" asp-controller="Admin" asp-route-id="@admin.Id"><span class="glyphicon glyphicon-eye-open"></span></a> |
                     <a asp-action="Edit" asp-controller="Admin" asp-route-id="@admin.Id"><span class="glyphicon glyphicon-pencil"></span></a> |

@@ -3,7 +3,7 @@ C:\Users\ASUSX555UB\Documents\Visual Studio 2015\Projects\ResumeManager\src\Resu
 C:\Users\ASUSX555UB\Documents\Visual Studio 2015\Projects\ResumeManager\src\ResumeManager\bin\Release\netcoreapp1.0\ResumeManager.runtimeconfig.dev.json
 C:\Users\ASUSX555UB\Documents\Visual Studio 2015\Projects\ResumeManager\src\ResumeManager\bin\Release\netcoreapp1.0\ResumeManager.dll
 C:\Users\ASUSX555UB\Documents\Visual Studio 2015\Projects\ResumeManager\src\ResumeManager\bin\Release\netcoreapp1.0\ResumeManager.pdb
-C:\Users\ASUSX555UB\Documents\Visual Studio 2015\Projects\ResumeManager\src\ResumeManager\obj\Release\netcoreapp1.0\ResumeManager.csprojResolveAssemblyReference.cache
 C:\Users\ASUSX555UB\Documents\Visual Studio 2015\Projects\ResumeManager\src\ResumeManager\obj\Release\netcoreapp1.0\ResumeManager.AssemblyInfo.cs
 C:\Users\ASUSX555UB\Documents\Visual Studio 2015\Projects\ResumeManager\src\ResumeManager\obj\Release\netcoreapp1.0\ResumeManager.dll
 C:\Users\ASUSX555UB\Documents\Visual Studio 2015\Projects\ResumeManager\src\ResumeManager\obj\Release\netcoreapp1.0\ResumeManager.pdb
+C:\Users\ASUSX555UB\Documents\Visual Studio 2015\Projects\ResumeManager\src\ResumeManager\obj\Release\netcoreapp1.0\ResumeManager.csprojResolveAssemblyReference.cache

@@ -69,29 +69,9 @@ namespace ResumeManager
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            Initialize(app.ApplicationServices);
+            
         }
 
-        public static void Initialize(IServiceProvider serviceProvider)
-        {
-            var context = serviceProvider.GetService<ResumeContext>();
-
-            if (!context.Users.Any())
-            {
-                context.Users.AddRange(
-                    new User
-                    {
-                        Username = "admin",
-                        Password = "qwerty",
-                        Name = "Rustam",
-                        LastName = "Asylgareev",
-                        Phone = "+79172814527",
-                        Company = "BizApps",
-                        
-                    }
-                );
-                context.SaveChanges();
-            }
-        }
+        
     }
 }

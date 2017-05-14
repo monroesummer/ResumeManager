@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using ResumeManager.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ResumeManager.Controllers
 {
@@ -42,6 +43,8 @@ namespace ResumeManager.Controllers
         [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
+            
+
             if (id != null)
             {
                 User user = await db.Users.FirstOrDefaultAsync(p => p.Id == id);
